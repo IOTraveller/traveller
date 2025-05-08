@@ -1,0 +1,31 @@
+name: Frontend Deploy
+
+on:
+  push:
+    branches:
+      main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          ssh-key: ${{ secrets.SSH_KEY }}
+
+  build:
+    needs: sync
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: frontend
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+      - run: ls
