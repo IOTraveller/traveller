@@ -1,6 +1,8 @@
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:IOTraveller/frontend.git
+	branch = master
 [submodule "infrastructure"]
 	path = infrastructure
 	url = git@github.com:IOTraveller/infrastructure.git
+	branch = master
